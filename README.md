@@ -34,7 +34,7 @@ Below are documented the endpoints of the API of this project. There are also so
 
 * User GitHub Search:
   
-   **Get all user that match the query parameters. Parameters are optional** - **GET** uphill/api/github-search?location={location}&language={language}&followers={followers}
+   **Get all user that match the query parameters. Parameters are optional but at least one of them must be present** - **GET** uphill/api/github-search?location={location}&language={language}&followers={followers}
    
    URL:
     
