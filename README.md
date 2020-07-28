@@ -1,2 +1,97 @@
-# UpHill_GitHub_Powered_Recruiting_Tool
-REST API to discover, manage and review tech candidates, using GitHub API to find them.
+# UpHill GitHub Powered Recruiting Tool
+
+The objective is to develop a service that allows the discovery of possible candidates by their location and code skills and the selection and revision of the ones that seem relevant for some job position.
+
+### Notes:
+
+To manually test the API please import the file in the _postman_collections_ to Postman and use those endpoints.
+
+### Setup:
+
+- Clone project to a folder
+- Run the application with:
+  - _mvn clean install_
+  - _mvn spring-boot:run_
+- Test the application with:
+  - _mvn test_ -> run all tests
+  - _mvn -Dtest=TestClass test_ -> run a single test class
+  - _mvn -Dtest=TestClass1,TestClass2 test_ -> run multiple test classes
+- Package the application with _mvn package_
+
+### To Use With Docker:
+  - Install Docker on your machine
+  - Launch Docker
+  - Run the command _sudo systemctl status docker_ to confirm Docker is running
+  - Open terminal in the project folder
+  - Run the command _mvn clean install_
+  - Run the command _sudo docker build -t [NAME_OF_IMAGE] ._ to create the Docker image. Replace _NAME_OF_IMAGE_ with a name for that image like, for example, _cycloid-epg-solution_
+  - Run the command _sudo docker run -p 8080:8080 [NAME_OF_IMAGE]_ to launch the application
+  - Test using Postman
+  
+  ## Endpoints:
+
+Below are documented the endpoints of the API of this project. There are also some examples of possible outcomes that might happen when using the API.
+
+* User GitHub Search:
+  
+   **Get all user that match the query parameters. Parameters are optional** - **GET** uphill/api/github-search?location={location}&language={language}&followers={followers}
+   
+   URL:
+    
+      http://localhost:8080/uphill/api/github-search?location=lisbon&language=java&followers=1000
+      
+   Response Status:
+      
+      200 OK
+      
+   Body:
+      
+      Empty
+      
+   Return:
+   
+      [
+        {
+          "name": "Stephane Maarek",
+          "company": "@datacumulus",
+          "blog": "https://courses.datacumulus.com/",
+          "location": "Lisbon + moving around the world",
+          "email": "N.A.",
+          "bio": "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.",
+          "numberOfFollowers": 3131,
+          "numberOfFollowing": 9,
+          "gitHubUrl": "https://github.com/simplesteph",
+          "repos": [
+              "https://github.com/simplesteph/ansible",
+              "https://github.com/simplesteph/ansible-modules-core",
+              "https://github.com/simplesteph/ansible-modules-extras",
+              "https://github.com/simplesteph/awesome-grpc",
+              "https://github.com/simplesteph/awesome-kafka",
+              "https://github.com/simplesteph/AWS-FAQ",
+              "https://github.com/simplesteph/aws-lambda-septime",
+              "https://github.com/simplesteph/azure-docs",
+              "https://github.com/simplesteph/azure-event-hubs-java",
+              "https://github.com/simplesteph/cp-docker-images",
+              "https://github.com/simplesteph/docker-kerberos-get-keytab",
+              "https://github.com/simplesteph/ec2-masterclass-sampleapp",
+              "https://github.com/simplesteph/ecs-gen",
+              "https://github.com/simplesteph/ecs-nginx-proxy",
+              "https://github.com/simplesteph/ecs-refarch-cloudformation",
+              "https://github.com/simplesteph/evans",
+              "https://github.com/simplesteph/exhibitor",
+              "https://github.com/simplesteph/fast-data-dev",
+              "https://github.com/simplesteph/foodiz_factual_fetch",
+              "https://github.com/simplesteph/fxldemo-gradle",
+              "https://github.com/simplesteph/grpc-csharp-course",
+              "https://github.com/simplesteph/grpc-go-course",
+              "https://github.com/simplesteph/grpc-java",
+              "https://github.com/simplesteph/grpc-java-course",
+              "https://github.com/simplesteph/ish",
+              "https://github.com/simplesteph/jmx_exporter",
+              "https://github.com/simplesteph/kafka",
+              "https://github.com/simplesteph/kafka-0.11-examples",
+              "https://github.com/simplesteph/kafka-avro-course",
+              "https://github.com/simplesteph/kafka-beginners-course"
+          ]
+        }
+      ]
