@@ -49,9 +49,189 @@ Below are documented the endpoints of the API of this project. There are also so
       Empty
       
    Return:
+    
+      [
+        {
+          "name": "Stephane Maarek",
+          "company": "@datacumulus",
+          "blog": "https://courses.datacumulus.com/",
+          "location": "Lisbon + moving around the world",
+          "email": "N.A.",
+          "bio": "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.",
+          "numberOfFollowers": 3131,
+          "numberOfFollowing": 9,
+          "gitHubUrl": "https://github.com/simplesteph",
+          "repos": [
+              "https://github.com/simplesteph/ansible",
+              "https://github.com/simplesteph/ansible-modules-core",
+              "https://github.com/simplesteph/ansible-modules-extras",
+              "https://github.com/simplesteph/awesome-grpc",
+              "https://github.com/simplesteph/awesome-kafka",
+              "https://github.com/simplesteph/AWS-FAQ",
+              "https://github.com/simplesteph/aws-lambda-septime",
+              "https://github.com/simplesteph/azure-docs",
+              "https://github.com/simplesteph/azure-event-hubs-java",
+              "https://github.com/simplesteph/cp-docker-images",
+              "https://github.com/simplesteph/docker-kerberos-get-keytab",
+              "https://github.com/simplesteph/ec2-masterclass-sampleapp",
+              "https://github.com/simplesteph/ecs-gen",
+              "https://github.com/simplesteph/ecs-nginx-proxy",
+              "https://github.com/simplesteph/ecs-refarch-cloudformation",
+              "https://github.com/simplesteph/evans",
+              "https://github.com/simplesteph/exhibitor",
+              "https://github.com/simplesteph/fast-data-dev",
+              "https://github.com/simplesteph/foodiz_factual_fetch",
+              "https://github.com/simplesteph/fxldemo-gradle",
+              "https://github.com/simplesteph/grpc-csharp-course",
+              "https://github.com/simplesteph/grpc-go-course",
+              "https://github.com/simplesteph/grpc-java",
+              "https://github.com/simplesteph/grpc-java-course",
+              "https://github.com/simplesteph/ish",
+              "https://github.com/simplesteph/jmx_exporter",
+              "https://github.com/simplesteph/kafka",
+              "https://github.com/simplesteph/kafka-0.11-examples",
+              "https://github.com/simplesteph/kafka-avro-course",
+              "https://github.com/simplesteph/kafka-beginners-course"
+          ]
+        }
+      ]
+      
+* User Reviewed:
+
+   **Save a GitHub user that has been reviewed** - **POST** uphill/api/recruiting
+      
+   URL:
+      
+      http://localhost:8080/uphill/api/recruiting
+      
+   Response Status:
+      
+      201 CREATED
+      
+   Body:
+      
+      {
+        "jobCategory": "Backend",
+        "skillLevel": "Junior",
+        "fitForJobScale": 3,
+        "commentary": "Testing",
+        "name": "Stephane Maarek",
+        "company": "@datacumulus",
+        "blog": "https://courses.datacumulus.com/",
+        "location": "Lisbon + moving around the world",
+        "email": "N.A.",
+        "bio": "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.",
+        "numberOfFollowers": 3130,
+        "numberOfFollowing": 9,
+        "gitHubUrl": "https://github.com/simplesteph",
+        "repos": [
+            "https://github.com/simplesteph/ansible",
+            "https://github.com/simplesteph/ansible-modules-core",
+            "https://github.com/simplesteph/ansible-modules-extras",
+            "https://github.com/simplesteph/awesome-grpc",
+            "https://github.com/simplesteph/awesome-kafka",
+            "https://github.com/simplesteph/AWS-FAQ",
+            "https://github.com/simplesteph/aws-lambda-septime",
+            "https://github.com/simplesteph/azure-docs",
+            "https://github.com/simplesteph/azure-event-hubs-java",
+            "https://github.com/simplesteph/cp-docker-images",
+            "https://github.com/simplesteph/docker-kerberos-get-keytab",
+            "https://github.com/simplesteph/ec2-masterclass-sampleapp",
+            "https://github.com/simplesteph/ecs-gen",
+            "https://github.com/simplesteph/ecs-nginx-proxy",
+            "https://github.com/simplesteph/ecs-refarch-cloudformation",
+            "https://github.com/simplesteph/evans",
+            "https://github.com/simplesteph/exhibitor",
+            "https://github.com/simplesteph/fast-data-dev",
+            "https://github.com/simplesteph/foodiz_factual_fetch",
+            "https://github.com/simplesteph/fxldemo-gradle",
+            "https://github.com/simplesteph/grpc-csharp-course",
+            "https://github.com/simplesteph/grpc-go-course",
+            "https://github.com/simplesteph/grpc-java",
+            "https://github.com/simplesteph/grpc-java-course",
+            "https://github.com/simplesteph/ish",
+            "https://github.com/simplesteph/jmx_exporter",
+            "https://github.com/simplesteph/kafka",
+            "https://github.com/simplesteph/kafka-0.11-examples",
+            "https://github.com/simplesteph/kafka-avro-course",
+            "https://github.com/simplesteph/kafka-beginners-course"
+        ]
+      }
+      
+   Return:
+   
+      {
+        "id": 1,
+        "jobCategory": "Backend",
+        "skillLevel": "Junior",
+        "fitForJobScale": 3,
+        "commentary": "Testing",
+        "name": "Stephane Maarek",
+        "company": "@datacumulus",
+        "blog": "https://courses.datacumulus.com/",
+        "location": "Lisbon + moving around the world",
+        "email": "N.A.",
+        "bio": "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.",
+        "numberOfFollowers": 3130,
+        "numberOfFollowing": 9,
+        "gitHubUrl": "https://github.com/simplesteph",
+        "repos": [
+            "https://github.com/simplesteph/ansible",
+            "https://github.com/simplesteph/ansible-modules-core",
+            "https://github.com/simplesteph/ansible-modules-extras",
+            "https://github.com/simplesteph/awesome-grpc",
+            "https://github.com/simplesteph/awesome-kafka",
+            "https://github.com/simplesteph/AWS-FAQ",
+            "https://github.com/simplesteph/aws-lambda-septime",
+            "https://github.com/simplesteph/azure-docs",
+            "https://github.com/simplesteph/azure-event-hubs-java",
+            "https://github.com/simplesteph/cp-docker-images",
+            "https://github.com/simplesteph/docker-kerberos-get-keytab",
+            "https://github.com/simplesteph/ec2-masterclass-sampleapp",
+            "https://github.com/simplesteph/ecs-gen",
+            "https://github.com/simplesteph/ecs-nginx-proxy",
+            "https://github.com/simplesteph/ecs-refarch-cloudformation",
+            "https://github.com/simplesteph/evans",
+            "https://github.com/simplesteph/exhibitor",
+            "https://github.com/simplesteph/fast-data-dev",
+            "https://github.com/simplesteph/foodiz_factual_fetch",
+            "https://github.com/simplesteph/fxldemo-gradle",
+            "https://github.com/simplesteph/grpc-csharp-course",
+            "https://github.com/simplesteph/grpc-go-course",
+            "https://github.com/simplesteph/grpc-java",
+            "https://github.com/simplesteph/grpc-java-course",
+            "https://github.com/simplesteph/ish",
+            "https://github.com/simplesteph/jmx_exporter",
+            "https://github.com/simplesteph/kafka",
+            "https://github.com/simplesteph/kafka-0.11-examples",
+            "https://github.com/simplesteph/kafka-avro-course",
+            "https://github.com/simplesteph/kafka-beginners-course"
+        ]
+      }
+      
+   **Get all GitHub users that have been reviewed** - **GET** uphill/api/recruiting
+      
+   URL:
+      
+      http://localhost:8080/uphill/api/recruiting
+      
+   Response Status:
+      
+      200 OKAY
+      
+   Body:
+      
+      Empty
+      
+   Return:  
    
       [
         {
+          "id": 1,
+          "jobCategory": "Backend",
+          "skillLevel": "Junior",
+          "fitForJobScale": 3,
+          "commentary": "Testing",
           "name": "Stephane Maarek",
           "company": "@datacumulus",
           "blog": "https://courses.datacumulus.com/",
