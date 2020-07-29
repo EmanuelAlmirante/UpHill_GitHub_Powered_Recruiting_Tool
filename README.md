@@ -6,6 +6,16 @@ The objective is to develop a service that allows the discovery of possible cand
 
 To manually test the API please import the file in the _postman_collections_ to Postman and use those endpoints.
 
+### Tech Stack:
+
+- Java 11
+- Spring Boot
+- Spring Security
+- Hibernate
+- H2 Database (in-memory)
+- JUnit
+- Mockito
+
 ### Setup:
 
 - Clone project to a folder
