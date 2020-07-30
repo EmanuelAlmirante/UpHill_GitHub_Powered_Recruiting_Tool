@@ -1,0 +1,141 @@
+{
+	"info": {
+		"_postman_id": "57b1983f-e19d-44c9-a9e3-2b3cc681b06d",
+		"name": "UpHill_GitHub_Powered_Recruiting_Tool",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/uphill/api/github-search?location=lisbon&language=java&followers=1000",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/uphill/api/github-search?location=lisbon&language=java&followers=1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uphill",
+						"api",
+						"github-search"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "lisbon"
+						},
+						{
+							"key": "language",
+							"value": "java"
+						},
+						{
+							"key": "followers",
+							"value": "1000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/uphill/api/recruiting",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jobCategory\": \"Backend\",\n    \"skillLevel\": \"Junior\",\n    \"fitForJobScale\": 3,\n    \"commentary\": \"Testing\",\n    \"name\": \"Stephane Maarek\",\n    \"company\": \"@datacumulus\",\n    \"blog\": \"https://courses.datacumulus.com/\",\n    \"location\": \"Lisbon + moving around the world\",\n    \"email\": \"N.A.\",\n    \"bio\": \"Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.\",\n    \"numberOfFollowers\": 3130,\n    \"numberOfFollowing\": 9,\n    \"gitHubUrl\": \"https://github.com/simplesteph\",\n    \"repos\": \n     [\n        \"https://github.com/simplesteph/ansible\",\n        \"https://github.com/simplesteph/ansible-modules-core\",\n        \"https://github.com/simplesteph/ansible-modules-extras\",\n        \"https://github.com/simplesteph/awesome-grpc\",\n        \"https://github.com/simplesteph/awesome-kafka\",\n        \"https://github.com/simplesteph/AWS-FAQ\",\n        \"https://github.com/simplesteph/aws-lambda-septime\",\n        \"https://github.com/simplesteph/azure-docs\",\n        \"https://github.com/simplesteph/azure-event-hubs-java\",\n        \"https://github.com/simplesteph/cp-docker-images\",\n        \"https://github.com/simplesteph/docker-kerberos-get-keytab\",\n        \"https://github.com/simplesteph/ec2-masterclass-sampleapp\",\n        \"https://github.com/simplesteph/ecs-gen\",\n        \"https://github.com/simplesteph/ecs-nginx-proxy\",\n        \"https://github.com/simplesteph/ecs-refarch-cloudformation\",\n        \"https://github.com/simplesteph/evans\",\n        \"https://github.com/simplesteph/exhibitor\",\n        \"https://github.com/simplesteph/fast-data-dev\",\n        \"https://github.com/simplesteph/foodiz_factual_fetch\",\n        \"https://github.com/simplesteph/fxldemo-gradle\",\n        \"https://github.com/simplesteph/grpc-csharp-course\",\n        \"https://github.com/simplesteph/grpc-go-course\",\n        \"https://github.com/simplesteph/grpc-java\",\n        \"https://github.com/simplesteph/grpc-java-course\",\n        \"https://github.com/simplesteph/ish\",\n        \"https://github.com/simplesteph/jmx_exporter\",\n        \"https://github.com/simplesteph/kafka\",\n        \"https://github.com/simplesteph/kafka-0.11-examples\",\n        \"https://github.com/simplesteph/kafka-avro-course\",\n        \"https://github.com/simplesteph/kafka-beginners-course\"\n     ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/uphill/api/recruiting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uphill",
+						"api",
+						"recruiting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/uphill/api/recruiting",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/uphill/api/recruiting",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"uphill",
+						"api",
+						"recruiting"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
