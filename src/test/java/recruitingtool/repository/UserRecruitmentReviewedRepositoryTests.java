@@ -13,8 +13,9 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class)
+
 @DataJpaTest
+@RunWith(SpringRunner.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserRecruitmentReviewedRepositoryTests {
     @Autowired

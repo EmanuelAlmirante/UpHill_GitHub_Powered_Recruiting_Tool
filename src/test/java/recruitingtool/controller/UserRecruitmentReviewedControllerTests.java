@@ -3,8 +3,11 @@ package recruitingtool.controller;
 import com.jayway.jsonpath.JsonPath;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MvcResult;
 import recruitingtool.model.UserRecruitmentReviewedModel;
 
@@ -12,10 +15,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     @Override
@@ -25,7 +32,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedModelSuccessfully() throws Exception {
+    public void createUserRecruitmentReviewedModelWithAuthenticationSuccessfully() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -58,8 +65,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isCreated())
                                  .andReturn();
 
@@ -89,7 +98,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidJobCategoryFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidJobCategoryWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -122,8 +131,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -137,7 +148,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidSkillLevelFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidSkillLevelWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -170,8 +181,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -185,7 +198,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidFitForJobScaleFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidFitForJobScaleWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -218,8 +231,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -233,7 +248,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidNameFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidNameWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -266,8 +281,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -281,7 +298,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowersFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowersWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -314,8 +331,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -329,7 +348,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowingFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowingWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -362,8 +381,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -377,7 +398,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void createUserRecruitmentReviewedWithInvalidGitHubUrlFails() throws Exception {
+    public void createUserRecruitmentReviewedWithInvalidGitHubUrlWithAuthenticationFails() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -410,8 +431,10 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
         // Act
-        MvcResult mvcResult = mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
-                                                   .accept(MediaType.APPLICATION_JSON))
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
                                  .andExpect(status().isInternalServerError())
                                  .andReturn();
 
@@ -425,7 +448,7 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void getAllUserRecruitmentReviewedModelReturnsPopulatedList() throws Exception {
+    public void getAllUserRecruitmentReviewedModelWithAuthenticationReturnsPopulatedList() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
@@ -457,14 +480,16 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
 
         String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
 
-        mvc.perform(post(uri).contentType(MediaType.APPLICATION_JSON_VALUE).content(inputJson)
+        mvc.perform(post(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                             .content(inputJson)
                              .accept(MediaType.APPLICATION_JSON))
            .andExpect(status().isCreated())
            .andReturn();
 
         // Act
         MvcResult mvcResult =
-                mvc.perform(get(uri).contentType(MediaType.APPLICATION_JSON_VALUE).accept(MediaType.APPLICATION_JSON))
+                mvc.perform(get(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                                    .accept(MediaType.APPLICATION_JSON))
                    .andExpect(status().isOk()).andReturn();
 
         String jsonResponse = mvcResult.getResponse().getContentAsString();
@@ -493,15 +518,16 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
     }
 
     @Test
-    public void getAllUserRecruitmentReviewedModelReturnsEmptyList() throws Exception {
+    public void getAllUserRecruitmentReviewedModelWithAuthenticationReturnsEmptyList() throws Exception {
         // Arrange
         String uri = "/uphill/api/recruiting";
 
         // Act
-        MvcResult mvcResult = mvc.perform(get(uri).contentType(MediaType.APPLICATION_JSON_VALUE)
-                                                  .accept(MediaType.APPLICATION_JSON))
-                                 .andExpect(status().isOk())
-                                 .andReturn();
+        MvcResult mvcResult =
+                mvc.perform(get(uri).with(httpBasic("admin", "admin")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                                    .accept(MediaType.APPLICATION_JSON))
+                   .andExpect(status().isOk())
+                   .andReturn();
 
         String jsonResponse = mvcResult.getResponse().getContentAsString();
 
@@ -509,5 +535,401 @@ public class UserRecruitmentReviewedControllerTests extends AbstractTest {
 
         // Assert
         assertEquals(expectedResponse, jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedModelWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidJobCategoryWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "DevOps";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidSkillLevelWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Distinguished";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidFitForJobScaleWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 10;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidNameWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = null;
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowersWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = -3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidNumberOfFollowingWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = -9;
+        String gitHubUrl = "https://github.com/simplesteph";
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void createUserRecruitmentReviewedWithInvalidGitHubUrlWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        String jobCategory = "Backend";
+        String skillLevel = "Junior";
+        int fitForJobScale = 3;
+        String commentary = "Nothing to comment upon.";
+        String name = "Stephane Maarek";
+        String company = "@datacumulus";
+        String blog = "https://courses.datacumulus.com/";
+        String location = "Lisbon + moving around the world";
+        String email = "N.A.";
+        String bio =
+                "Kafka & AWS evangelist, Udemy instructor, love finding problems that are patiently waiting to be solved.";
+        int numberOfFollowers = 3130;
+        int numberOfFollowing = 9;
+        String gitHubUrl = null;
+        List<String> repos = Arrays.asList("https://github.com/simplesteph/ansible",
+                                           "https://github.com/simplesteph/ansible-modules-core");
+
+        UserRecruitmentReviewedModel userRecruitmentReviewedModelToBeCreated =
+                UserRecruitmentReviewedModel.Builder.userRecruitmentReviewedModelWith().withJobCategory(jobCategory)
+                                                    .withSkillLevel(skillLevel).withFitForJobScale(fitForJobScale)
+                                                    .withCommentary(commentary).withName(name).withCompany(company)
+                                                    .withBlog(blog).withLocation(location).withEmail(email).withBio(bio)
+                                                    .withNumberOfFollowers(numberOfFollowers)
+                                                    .withNumberOfFollowing(numberOfFollowing).withGitHubUrl(gitHubUrl)
+                                                    .withRepos(repos).build();
+
+        String inputJson = super.mapToJson(userRecruitmentReviewedModelToBeCreated);
+
+        // Act
+        MvcResult mvcResult = mvc.perform(
+                post(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                         .content(inputJson)
+                         .accept(MediaType.APPLICATION_JSON))
+                                 .andExpect(status().isUnauthorized())
+                                 .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
+    }
+
+    @Test
+    public void getAllUserRecruitmentReviewedModelWithoutAuthenticationFails() throws Exception {
+        // Arrange
+        // Arrange
+        String uri = "/uphill/api/recruiting";
+
+        // Act
+        MvcResult mvcResult =
+                mvc.perform(
+                        get(uri).with(httpBasic("admin", "wrongPassword")).contentType(MediaType.APPLICATION_JSON_VALUE)
+                                .accept(MediaType.APPLICATION_JSON))
+                   .andExpect(status().isUnauthorized())
+                   .andReturn();
+
+        String jsonResponse = mvcResult.getResponse().getContentAsString();
+
+        // Assert
+        assertNotNull(jsonResponse);
     }
 }
