@@ -4,6 +4,8 @@ The objective is to develop a service that allows the discovery of possible cand
 
 ### Notes:
 
+The tests might take more than 5 minutes to run, so the application is not frozen or anything, you just have to wait a little bit.
+
 To manually test the API please import the file in the _postman_collections_ to Postman and use those endpoints.
 
 Every request need to be authenticated. To do this when using Postman, go to to the _Authorization_ tab, choose _Basic Auth_ in _Type_ and the insert the username (_admin_) and password (_admin_), and finally do the request.
