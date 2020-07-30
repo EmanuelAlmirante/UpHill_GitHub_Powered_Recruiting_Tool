@@ -9,12 +9,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import static recruitingtool.security.utils.AuthorizedClients.*;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder().encode("admin")).roles("ADMIN");
+        auth.inMemoryAuthentication().withUser(USERNAME_ADMIN).password(passwordEncoder().encode(PASSWORD_ADMIN)).roles(ROLE_ADMIN);
     }
 
     @Override
