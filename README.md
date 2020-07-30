@@ -49,7 +49,9 @@ Below are documented the endpoints of the API of this project. There are also so
 
 * User GitHub Search:
   
-   **Get all user that match the query parameters. Parameters are optional but at least one of them must be present** - **GET** uphill/api/github-search?location={location}&language={language}&followers={followers}
+   **Get all user that match the query parameters. Parameters are optional but at least one of them must be present**  
+   
+      GET uphill/api/github-search?location={location}&language={language}&followers={followers}
    
    URL:
     
@@ -119,7 +121,9 @@ Below are documented the endpoints of the API of this project. There are also so
       
 * User Reviewed:
 
-   **Save a GitHub user that has been reviewed** - **POST** uphill/api/recruiting
+   **Save a GitHub user that has been reviewed**
+   
+      POST uphill/api/recruiting
       
    URL:
       
@@ -236,7 +240,9 @@ Below are documented the endpoints of the API of this project. There are also so
         ]
       }
       
-   **Get all GitHub users that have been reviewed** - **GET** uphill/api/recruiting
+   **Get all GitHub users that have been reviewed**
+   
+      GET uphill/api/recruiting
       
    URL:
       
