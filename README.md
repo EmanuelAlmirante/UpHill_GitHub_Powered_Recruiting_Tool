@@ -29,6 +29,7 @@ Every request need to be authenticated. To do this when using Postman, go to to 
   - _mvn -Dtest=TestClass test_ -> run a single test class
   - _mvn -Dtest=TestClass1,TestClass2 test_ -> run multiple test classes
 - Package the application with _mvn package_
+- Test using Postman
 
 ### To Use With Docker:
   - Install Docker on your machine
@@ -36,7 +37,7 @@ Every request need to be authenticated. To do this when using Postman, go to to 
   - Run the command _sudo systemctl status docker_ to confirm Docker is running
   - Open terminal in the project folder
   - Run the command _mvn clean install_
-  - Run the command _sudo docker build -t [NAME_OF_IMAGE] ._ to create the Docker image. Replace _NAME_OF_IMAGE_ with a name for that image like, for example, _cycloid-epg-solution_
+  - Run the command _sudo docker build -t [NAME_OF_IMAGE] ._ to create the Docker image. Replace _NAME_OF_IMAGE_ with a name for that image like, for example, _uphill-solution_
   - Run the command _sudo docker run -p 8080:8080 [NAME_OF_IMAGE]_ to launch the application
   - Test using Postman
   
