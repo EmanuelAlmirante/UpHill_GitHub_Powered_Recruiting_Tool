@@ -6,6 +6,8 @@ The objective is to develop a service that allows the discovery of possible cand
 
 To manually test the API please import the file in the _postman_collections_ to Postman and use those endpoints.
 
+Every request need to be authenticated. To do this when using Postman, go to to the _Authorization_ tab, choose _Basic Auth_ in _Type_ and the insert the username (_admin_) and password (_admin_), and finally do the request.
+
 ### Tech Stack:
 
 - Java 11
@@ -49,6 +51,12 @@ Below are documented the endpoints of the API of this project. There are also so
    URL:
     
       http://localhost:8080/uphill/api/github-search?location=lisbon&language=java&followers=1000
+      
+   Authorization:
+      
+      Basic Auth 
+      Username - admin
+      Password - admin
       
    Response Status:
       
@@ -113,6 +121,12 @@ Below are documented the endpoints of the API of this project. There are also so
    URL:
       
       http://localhost:8080/uphill/api/recruiting
+      
+   Authorization:
+      
+      Basic Auth 
+      Username - admin
+      Password - admin
       
    Response Status:
       
@@ -224,6 +238,12 @@ Below are documented the endpoints of the API of this project. There are also so
    URL:
       
       http://localhost:8080/uphill/api/recruiting
+      
+   Authorization:
+      
+      Basic Auth 
+      Username - admin
+      Password - admin
       
    Response Status:
       
