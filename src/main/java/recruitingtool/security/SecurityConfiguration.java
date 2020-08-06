@@ -16,7 +16,8 @@ import static recruitingtool.security.utils.AuthorizedClients.*;
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser(USERNAME_ADMIN).password(passwordEncoder().encode(PASSWORD_ADMIN)).roles(ROLE_ADMIN);
+        auth.inMemoryAuthentication().withUser(USERNAME_ADMIN).password(passwordEncoder().encode(PASSWORD_ADMIN))
+            .roles(ROLE_ADMIN);
     }
 
     @Override

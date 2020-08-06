@@ -183,7 +183,6 @@ public class UserGitHubSearchServiceImpl implements UserGitHubSearchService {
             in.close();
 
             Gson gson = new Gson();
-
             jsonArray = gson.fromJson(response.toString(), JsonArray.class);
         } catch (Exception e) {
             e.printStackTrace();
